@@ -1,14 +1,14 @@
 // functions/selectPass.js
-import pkg from 'pg';  // Importa o módulo pg como um todo
-const { Pool } = pkg; // Desestrutura para obter o Pool
+import pkg from 'pg';  
+const { Pool } = pkg;
 
 // Configure o pool do PostgreSQL
 const client = new Pool({
-    user: 'leonan',         // Substitua pelo seu usuário
-    host: 'db',                // Nome do serviço do banco de dados no Docker
-    database: 'testeDB', // Substitua pelo seu banco de dados
-    password: 'leonanPASS',  // Substitua pela sua senha
-    port: 5432,                // Porta padrão do PostgreSQL
+    user: 'leonan',        
+    host: 'db',              
+    database: 'testeDB', 
+    password: 'leonanPASS',  
+    port: 5432,              
 });
 
 // Função para selecionar senhas

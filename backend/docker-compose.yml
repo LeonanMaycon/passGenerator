@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    environment:
+      - NODE_ENV=development
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: leonan           # Substitua pelo seu usuário
+      POSTGRES_PASSWORD: leonanPASS     # Substitua pela sua senha
+      POSTGRES_DB: testeDB           # Substitua pelo seu banco de dados
+    ports:
+      - "5432:5432"

@@ -14,7 +14,7 @@ RUN npm install
 COPY ./src ./src
 
 # Exponha a porta do aplicativo
-EXPOSE 3000
+EXPOSE 80
 
 # Comando para iniciar o aplicativo
 CMD [ "node", "src/app.js" ]

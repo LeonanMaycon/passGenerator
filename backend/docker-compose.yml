@@ -14,8 +14,8 @@ services:
     image: postgres:13
     restart: always
     environment:
-      POSTGRES_USER: leonan           # Substitua pelo seu usuário
-      POSTGRES_PASSWORD: leonanPASS     # Substitua pela sua senha
-      POSTGRES_DB: testeDB           # Substitua pelo seu banco de dados
+      POSTGRES_USER: leonan           
+      POSTGRES_PASSWORD: leonanPASS    
+      POSTGRES_DB: testeDB           
     ports:
       - "5432:5432"

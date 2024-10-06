@@ -1,25 +1,41 @@
 // src/app.js
 import express from 'express';
-import pkg from 'pg';  // Importa o módulo pg como um todo
+import pkg from 'pg';  
 import generateAndSavePassword from './functions/createPass.js';
 import deletePass from './functions/deletePass.js';
 import patchPass from './functions/patchPass.js';
 import selectPass from './functions/selectPass.js';
-const { Pool } = pkg; // Desestrutura para obter o Pool
+const { Pool } = pkg;
 
 const app = express();
 const port = 80;
 
 // Configure o pool do PostgreSQL
 const pool = new Pool({
-    user: 'leonan',         // Substitua pelo seu usuário
-    host: 'db',                // Nome do serviço do banco de dados no Docker
-    database: 'testeDB', // Substitua pelo seu banco de dados
-    password: 'leonanPASS',  // Substitua pela sua senha
-    port: 5432,                // Porta padrão do PostgreSQL
+    user: 'leonan',       
+    host: 'db',              
+    database: 'testeDB', 
+    password: 'leonanPASS',  
+    port: 5432,             
 });
+const waitForDatabase = async () => {
+    let retries = 5;
+    while (retries) {
+        try {
+            await pool.query('SELECT 1'); 
+            return; 
+        } catch (err) {
+            console.error('Esperando o banco de dados...', err);
+            retries -= 1;
+            await new Promise(res => setTimeout(res, 5000)); 
+        }
+    }
+    throw new Error('O banco de dados não está acessível após várias tentativas.');
+};
+
 // Função para criar a tabela
 const createTable = async () => {
+    await waitForDatabase(); 
     const query = `
         CREATE TABLE IF NOT EXISTS passwords (
             id SERIAL PRIMARY KEY,

@@ -12,11 +12,11 @@ const port = 80;
 
 // Configure o pool do PostgreSQL
 const pool = new Pool({
-    user: 'leonan',       
+    user: 'passDBUser',       
     host: 'db',              
-    database: 'testeDB', 
-    password: 'leonanPASS',  
-    port: 5432,             
+    database: 'passDB', 
+    password: 'passDBPass',  
+    // port: 5432,             
 });
 const waitForDatabase = async () => {
     let retries = 5;

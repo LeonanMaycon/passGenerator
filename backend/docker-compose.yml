@@ -12,11 +12,9 @@ services:
     image: postgres:13
     restart: always
     environment:
-      POSTGRES_USER: leonan           
-      POSTGRES_PASSWORD: leonanPASS    
-      POSTGRES_DB: testeDB           
-    ports:
-      - "5432:5432"
+      POSTGRES_USER: passDBUser         
+      POSTGRES_PASSWORD: passDBPass    
+      POSTGRES_DB: passDB
     volumes:
       - db_data:/var/lib/postgresql/data
 

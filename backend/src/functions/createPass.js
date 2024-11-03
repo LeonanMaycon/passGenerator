@@ -5,11 +5,11 @@ const { Pool } = pkg; // Desestrutura para obter o Pool
 
 // Configure o pool do PostgreSQL
 const client = new Pool({
-    user: 'leonan',         // Substitua pelo seu usuário
+    user: 'passDBUser',         // Substitua pelo seu usuário
     host: 'db',                // Nome do serviço do banco de dados no Docker
-    database: 'testeDB', // Substitua pelo seu banco de dados
-    password: 'leonanPASS',  // Substitua pela sua senha
-    port: 5432,                // Porta padrão do PostgreSQL
+    database: 'passDB', // Substitua pelo seu banco de dados
+    password: 'passDBPass',  // Substitua pela sua senha
+    // port: 5432,                // Porta padrão do PostgreSQL
 });
 
 // Função para gerar e salvar senhas

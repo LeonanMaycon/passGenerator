@@ -5,11 +5,11 @@ const { Pool } = pkg;
 
 // Configure o pool do PostgreSQL
 const client = new Pool({
-    user: 'leonan',       
+    user: 'passDBUser',       
     host: 'db',               
-    database: 'testeDB',
-    password: 'leonanPASS', 
-    port: 5432,               
+    database: 'passDB',
+    password: 'passDBPass', 
+    // port: 5432,               
 });
 
 

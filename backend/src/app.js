@@ -16,7 +16,7 @@ const pool = new Pool({
     host: 'db',              
     database: 'passDB', 
     password: 'passDBPass',  
-    // port: 5432,             
+    port: 5432,             
 });
 const waitForDatabase = async () => {
     let retries = 5;

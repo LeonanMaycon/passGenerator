@@ -9,7 +9,7 @@ const client = new Pool({
     host: 'db',               
     database: 'passDB',
     password: 'passDBPass', 
-    // port: 5432,               
+    port: 5432,               
 });
 
 
